@@ -117,10 +117,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signInWithOAuth = async (provider: "google" | "apple") => {
     try {
+      // Ensure we have a fully qualified URL for the redirect
+      const baseUrl = typeof window !== 'undefined'
+        ? window.location.origin
+        : process.env.NEXT_PUBLIC_SITE_URL || '';
+
+      const redirectTo = `${baseUrl.replace(/\/$/, '')}/auth/callback`;
+
+      console.log("🔗 OAuth Redirect URL:", redirectTo);
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/auth/callback`,
+          redirectTo,
           queryParams: {
             prompt: 'select_account',
             access_type: 'offline',
