@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import { MainLayout } from "@/components/layout/main-layout";
@@ -23,7 +23,7 @@ const BookDetailsModal = dynamic(
   { ssr: false }
 );
 
-export default function DiscoverPage() {
+function DiscoverContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
 
@@ -133,9 +133,6 @@ export default function DiscoverPage() {
       } else {
         setSortBy("relevance");
       }
-
-      // TODO: Year range filter - needs custom date filtering logic
-      // Google Books API doesn't have direct year range support
 
       searchString = queryParts.join('+');
     }
@@ -350,5 +347,13 @@ export default function DiscoverPage() {
         )}
       </div>
     </MainLayout>
+  );
+}
+
+export default function DiscoverPage() {
+  return (
+    <Suspense fallback={<BookGridSkeleton count={20} />}>
+      <DiscoverContent />
+    </Suspense>
   );
 }
