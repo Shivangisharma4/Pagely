@@ -1,0 +1,8 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Corner decoration flourish -->
+  <path d="M5 5 Q 10 5, 10 10" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M5 5 Q 5 10, 10 10" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <circle cx="5" cy="5" r="2" fill="currentColor" opacity="0.4"/>
+  <path d="M15 5 Q 20 7, 20 12" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M5 15 Q 7 20, 12 20" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+</svg>

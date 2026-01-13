@@ -1,0 +1,43 @@
+{
+  "name": "Pagely - Reading Tracker",
+  "short_name": "Pagely",
+  "description": "Track your reading journey with Pagely",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["books", "education", "lifestyle"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "My Library",
+      "url": "/library",
+      "description": "View your book library"
+    },
+    {
+      "name": "Discover",
+      "url": "/discover",
+      "description": "Discover new books"
+    },
+    {
+      "name": "Statistics",
+      "url": "/stats",
+      "description": "View reading statistics"
+    }
+  ]
+}

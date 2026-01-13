@@ -1,0 +1,23 @@
+-- Seed data for development and testing
+
+-- Insert sample books
+INSERT INTO public.books (google_books_id, isbn13, title, authors, publisher, published_date, description, page_count, categories, average_rating, ratings_count, language, image_links) VALUES
+('nggnmAEACAAJ', '9780316769174', 'The Catcher in the Rye', ARRAY['J.D. Salinger'], 'Little, Brown', '1991-05-01', 'The hero-narrator of The Catcher in the Rye is an ancient child of sixteen, a native New Yorker named Holden Caulfield.', 277, ARRAY['Fiction', 'Classics'], 3.8, 3245678, 'en', '{"thumbnail": "http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('wrOQLV6xB-wC', '9780547928227', 'The Hobbit', ARRAY['J.R.R. Tolkien'], 'Houghton Mifflin Harcourt', '2012-09-18', 'Bilbo Baggins is a hobbit who enjoys a comfortable, unambitious life.', 300, ARRAY['Fiction', 'Fantasy'], 4.3, 2876543, 'en', '{"thumbnail": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('5NomkK4EV68C', '9780061120084', 'To Kill a Mockingbird', ARRAY['Harper Lee'], 'Harper Perennial Modern Classics', '2006-05-23', 'The unforgettable novel of a childhood in a sleepy Southern town.', 336, ARRAY['Fiction', 'Classics'], 4.3, 4567890, 'en', '{"thumbnail": "http://books.google.com/books/content?id=5NomkK4EV68C&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('yxv1AwAAQBAJ', '9780544003415', '1984', ARRAY['George Orwell'], 'Houghton Mifflin Harcourt', '2013-04-30', 'A dystopian social science fiction novel and cautionary tale.', 328, ARRAY['Fiction', 'Dystopian', 'Classics'], 4.2, 3456789, 'en', '{"thumbnail": "http://books.google.com/books/content?id=yxv1AwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('PGR2AwAAQBAJ', '9780547345666', 'The Great Gatsby', ARRAY['F. Scott Fitzgerald'], 'Scribner', '2004-09-30', 'The story of the mysteriously wealthy Jay Gatsby and his love for Daisy Buchanan.', 180, ARRAY['Fiction', 'Classics'], 3.9, 3987654, 'en', '{"thumbnail": "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('KQZCPgAAQBAJ', '9780316769488', 'The Handmaid''s Tale', ARRAY['Margaret Atwood'], 'Anchor', '1998-09-01', 'A gripping vision of our society radically overturned by a theocratic revolution.', 311, ARRAY['Fiction', 'Dystopian'], 4.1, 2345678, 'en', '{"thumbnail": "http://books.google.com/books/content?id=KQZCPgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('aWZzLPhY4o0C', '9780141439518', 'Pride and Prejudice', ARRAY['Jane Austen'], 'Penguin UK', '2002-12-31', 'A romantic novel of manners set in Georgian England.', 432, ARRAY['Fiction', 'Romance', 'Classics'], 4.3, 4123456, 'en', '{"thumbnail": "http://books.google.com/books/content?id=aWZzLPhY4o0C&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('sazytgAACAAJ', '9780439023481', 'The Hunger Games', ARRAY['Suzanne Collins'], 'Scholastic Press', '2008-09-14', 'In a dark vision of the near future, twelve boys and twelve girls are forced to appear in a live TV show called the Hunger Games.', 374, ARRAY['Fiction', 'Young Adult', 'Dystopian'], 4.3, 6789012, 'en', '{"thumbnail": "http://books.google.com/books/content?id=sazytgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('yl4dILkcqm4C', '9780439064873', 'Harry Potter and the Chamber of Secrets', ARRAY['J.K. Rowling'], 'Scholastic Inc.', '1999-06-02', 'The Dursleys were so mean and hideous that summer that all Harry Potter wanted was to get back to the Hogwarts School for Witchcraft and Wizardry.', 341, ARRAY['Fiction', 'Fantasy', 'Young Adult'], 4.4, 5678901, 'en', '{"thumbnail": "http://books.google.com/books/content?id=yl4dILkcqm4C&printsec=frontcover&img=1&zoom=1&source=gbs_api"}'),
+('5iTebBW-w7QC', '9780316015844', 'Twilight', ARRAY['Stephenie Meyer'], 'Little, Brown Books for Young Readers', '2006-10-05', 'When seventeen-year-old Bella leaves Phoenix to live with her father in Forks, Washington, she meets an exquisitely handsome boy at school.', 498, ARRAY['Fiction', 'Young Adult', 'Romance'], 3.6, 4567890, 'en', '{"thumbnail": "http://books.google.com/books/content?id=5iTebBW-w7QC&printsec=frontcover&img=1&zoom=1&source=gbs_api"}');
+
+-- Note: User profiles will be automatically created via trigger when auth.users are created
+-- This seed file focuses on books and can be extended with more sample data as needed
+
+-- Add sample reading goals (requires actual user IDs from auth.users)
+-- These would typically be added after user creation in a real scenario
+
+-- Sample book lists (requires actual user IDs)
+-- These would typically be added after user creation in a real scenario

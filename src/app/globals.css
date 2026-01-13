@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Bookish Light Mode - Aged Paper & Vintage Library */
+    --background: 42 40% 94%;
+    /* Aged paper #F4ECD8 */
+    --foreground: 20 40% 15%;
+    /* Dark brown ink #3E2723 */
+
+    --card: 42 35% 92%;
+    /* Slightly darker paper */
+    --card-foreground: 20 40% 15%;
+
+    --popover: 42 40% 96%;
+    --popover-foreground: 20 40% 15%;
+
+    --primary: 25 70% 19%;
+    /* Dark brown #5D2E0F */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 120 35% 25%;
+    /* Forest green #2D5016 */
+    --secondary-foreground: 42 40% 98%;
+
+    --muted: 30 25% 60%;
+    /* Faded brown #8D6E63 */
+    --muted-foreground: 20 30% 35%;
+
+    --accent: 45 80% 40%;
+    /* Aged gold #B8860B */
+    --accent-foreground: 20 40% 15%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 42 40% 98%;
+
+    --border: 30 20% 75%;
+    --input: 42 30% 88%;
+    --ring: 45 80% 40%;
+
+    --radius: 0.75rem;
+
+    --chart-1: 120 35% 35%;
+    --chart-2: 0 45% 40%;
+    --chart-3: 45 70% 45%;
+    --chart-4: 30 40% 50%;
+    --chart-5: 180 30% 40%;
+  }
+
+  .dark {
+    /* Bookish Dark Mode - Night Library (Premium Refinement) */
+    --background: 240 10% 4%;
+    /* Deep midnight #0A0A0B */
+    --foreground: 210 20% 98%;
+    /* Soft white #FAFAFA */
+
+    --card: 240 10% 6%;
+    /* Slightly lighter than background */
+    --card-foreground: 210 20% 98%;
+
+    --popover: 240 10% 5%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 45 90% 60%;
+    /* Vibrant antique gold #F1C40F */
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 170 50% 15%;
+    /* Deeper, richer teal */
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 240 5% 15%;
+    /* Dark gray-blue */
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 45 90% 60%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 240 5% 12%;
+    --input: 240 5% 10%;
+    --ring: 45 90% 60%;
+
+    --chart-1: 170 50% 35%;
+    --chart-2: 45 90% 60%;
+    --chart-3: 120 40% 30%;
+    --chart-4: 30 50% 35%;
+    --chart-5: 0 50% 35%;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      repeating-linear-gradient(0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.01) 2px,
+        rgba(0, 0, 0, 0.01) 4px),
+      repeating-linear-gradient(90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.01) 2px,
+        rgba(0, 0, 0, 0.01) 4px),
+      radial-gradient(circle at 10% 20%, rgba(139, 69, 19, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(139, 69, 19, 0.02) 0%, transparent 50%);
+  }
+
+  .dark body {
+    background-image:
+      repeating-linear-gradient(0deg,
+        transparent,
+        transparent 2px,
+        hsla(var(--primary) / 0.01) 2px,
+        hsla(var(--primary) / 0.01) 4px),
+      repeating-linear-gradient(90deg,
+        transparent,
+        transparent 2px,
+        hsla(var(--primary) / 0.01) 2px,
+        hsla(var(--primary) / 0.01) 4px),
+      radial-gradient(circle at 10% 20%, hsla(var(--secondary) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, hsla(var(--primary) / 0.03) 0%, transparent 50%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading transition-colors duration-200;
+  }
+
+  /* Premium Card Styles */
+  [class*="card"],
+  .card {
+    background:
+      radial-gradient(ellipse at 30% 40%, hsla(var(--primary) / 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 60%, hsla(var(--secondary) / 0.05) 0%, transparent 60%),
+      repeating-linear-gradient(90deg,
+        transparent,
+        transparent 3px,
+        rgba(255, 255, 255, 0.01) 3px,
+        rgba(255, 255, 255, 0.01) 6px),
+      hsl(var(--card));
+    box-shadow:
+      0 4px 20px -5px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 hsla(var(--primary) / 0.1);
+    border: 1px solid hsla(var(--border) / 1);
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+  }
+
+  .dark [class*="card"],
+  .dark .card {
+    box-shadow:
+      0 10px 30px -10px rgba(0, 0, 0, 0.5),
+      0 0 0 1px hsla(var(--border) / 0.3);
+    background:
+      radial-gradient(ellipse at 30% 40%, hsla(var(--primary) / 0.03) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 60%, hsla(var(--secondary) / 0.03) 0%, transparent 60%),
+      hsl(var(--card));
+  }
+
+  [class*="card"]:hover,
+  .card:hover {
+    box-shadow:
+      0 12px 40px -15px rgba(0, 0, 0, 0.2),
+      0 0 0 1px hsla(var(--primary) / 0.3);
+    border-color: hsla(var(--primary) / 0.5);
+    transform: translateY(-4px);
+  }
+
+  .dark [class*="card"]:hover,
+  .dark .card:hover {
+    box-shadow:
+      0 20px 40px -15px rgba(0, 0, 0, 0.8),
+      0 0 0 1px hsla(var(--primary) / 0.4);
+  }
+
+  /* Button Styles */
+  button:not([class*="ghost"]):not([class*="outline"]) {
+    background-image:
+      radial-gradient(ellipse at 30% 40%, hsla(var(--primary-foreground) / 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 60%, hsla(var(--primary-foreground) / 0.05) 0%, transparent 50%);
+    box-shadow:
+      inset 0 1px 0 hsla(var(--primary-foreground) / 0.1),
+      0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+
+  button:not([class*="ghost"]):not([class*="outline"]):hover {
+    box-shadow:
+      inset 0 1px 0 hsla(var(--primary-foreground) / 0.2),
+      0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+  }
+
+  /* Custom Transitions */
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  /* Custom Scrollbar Styles */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Custom scrollbar for genre chips and other horizontal scrollers */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/20 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted/40 rounded-full hover:bg-muted/60;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 hover:bg-primary/50;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted) / 0.4) hsl(var(--muted) / 0.2);
+  }
+
+  .dark * {
+    scrollbar-color: hsl(var(--primary) / 0.3) transparent;
+  }
+}
