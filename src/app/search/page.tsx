@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { MainLayout } from "@/components/layout/main-layout";
 import { Input } from "@/components/ui/input";
@@ -13,7 +13,7 @@ import { useUserLibrary } from "@/hooks/use-user-books";
 import { searchInLibrary, type SearchFilters } from "@/lib/search";
 import { BookCard } from "@/components/books/book-card";
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
 
@@ -113,5 +113,19 @@ export default function SearchPage() {
         </Tabs>
       </div>
     </MainLayout>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={
+      <MainLayout>
+        <div className="flex items-center justify-center py-12">
+          <p className="text-muted-foreground">Loading search...</p>
+        </div>
+      </MainLayout>
+    }>
+      <SearchContent />
+    </Suspense>
   );
 }
