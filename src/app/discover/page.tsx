@@ -23,6 +23,9 @@ const BookDetailsModal = dynamic(
   { ssr: false }
 );
 
+// Enable ISR: Revalidate every hour for global speed
+export const revalidate = 3600;
+
 function DiscoverContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
@@ -142,8 +145,8 @@ function DiscoverContent() {
   };
 
   const handleAddToLibrary = async (book: GoogleBooksVolume) => {
-    console.log("📚 Add to Library clicked for:", book.title);
-    setAddingBookId(book.google_books_id);
+    const bookId = book.google_books_id;
+    setAddingBookId(bookId);
 
     // Show optimistic feedback immediately
     toast({
@@ -173,7 +176,6 @@ function DiscoverContent() {
         canonical_volume_link: book.canonical_volume_link,
       };
 
-      console.log("📖 Creating book in database...", bookData);
       const { data: createdBook, error: bookError } = await createBook(bookData);
 
       if (bookError) {
@@ -214,7 +216,6 @@ function DiscoverContent() {
           throw new Error(libraryError);
         }
       } else {
-        console.log("✅ Book added to library successfully!");
         toast({
           title: "✓ Success!",
           description: `"${book.title}" has been added to your library`,

@@ -124,8 +124,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       const redirectTo = `${baseUrl.replace(/\/$/, '')}/auth/callback`;
 
-      console.log("🔗 OAuth Redirect URL:", redirectTo);
-
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {

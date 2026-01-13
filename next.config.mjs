@@ -16,6 +16,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 3600, // Cache images for 1 hour on CDN
     remotePatterns: [
       {
         protocol: 'https',
@@ -25,10 +27,15 @@ const nextConfig = {
         protocol: 'https',
         hostname: '*.googleusercontent.com',
       },
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+      },
     ],
   },
   experimental: {
     typedRoutes: true,
+    ppr: 'incremental', // Enable Partial Prerendering
   },
 };
 
