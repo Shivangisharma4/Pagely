@@ -4,7 +4,7 @@
 
 Pagely is a modern, beautifully designed book tracking application that helps you discover, manage, and reflect on your reading life. Whether you're setting yearly goals, keeping track of your library, or analyzing your reading habits, Pagely provides a seamless experience to enhance your literary journey.
 
-🔗 **Live Demo:** [pagely-icbmwb3b4-kathana-ai.vercel.app](https://pagely-icbmwb3b4-kathana-ai.vercel.app)
+🔗 **Live Demo:** [pagely-one.vercel.app](https://pagely-one.vercel.app/))
 
 ---
 
