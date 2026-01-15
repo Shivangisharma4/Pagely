@@ -10,14 +10,33 @@ Pagely is a modern, beautifully designed book tracking application that helps yo
 
 ## ✨ Features
 
-- **📖 Digital Library**: Organize your books into "Want to Read", "Currently Reading", and "Finished" shelves.
-- **🎯 Reading Goals**: Set and track yearly or monthly reading challenges to stay motivated.
-- **🔍 Discover**: Find your next favorite book with powerful search and curated recommendations.
-- **📊 Analytics**: Visualize your reading habits with detailed stats and progress tracking.
-- **⏱️ Reading Sessions**: Log your reading sessions to track time spent and pages read.
-- **📝 Notes & Quotes**: Save memorable quotes and take notes as you read.
-- **🤝 Social**: Connect with friends, follow their reading journeys, and share reviews.
-- **🎨 Modern UI**: A premium, responsive interface with dark mode support.
+```mermaid
+graph TD
+    A[User] -->|Sign Up / Login| B(Dashboard)
+    B --> C{Discover}
+    C -->|Search| D[Find Books]
+    C -->|Browse| E[Recommendations]
+    D --> F[Add to Library]
+    E --> F
+    
+    F --> G{Reading Status}
+    G -->|Want to Read| H[Planned]
+    G -->|Reading| I[Currently Reading]
+    G -->|Finished| J[Completed]
+    
+    I --> K[Log Sessions]
+    I --> L[Add Notes & Quotes]
+    J --> M[Rate & Review]
+    
+    M --> N[Social Sharing]
+    B --> O[View Analytics]
+    B --> P[Reading Goals]
+```
+
+### Core Capabilities
+* **Digital Library**: Smart shelves for all your books
+* **Analytics**: Deep insights into your reading habits
+* **Social**: Connect and share with fellow readers
 
 ## 🛠️ Tech Stack
 
