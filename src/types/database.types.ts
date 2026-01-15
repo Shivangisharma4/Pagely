@@ -1,27 +1,27 @@
 // Database types generated from Supabase schema
 
-export type ReadingStatus = 
-  | 'want_to_read' 
-  | 'currently_reading' 
-  | 'finished' 
-  | 'did_not_finish' 
+export type ReadingStatus =
+  | 'want_to_read'
+  | 'currently_reading'
+  | 'finished'
+  | 'did_not_finish'
   | 'on_hold';
 
-export type BookFormat = 
-  | 'hardcover' 
-  | 'paperback' 
-  | 'ebook' 
-  | 'audiobook' 
+export type BookFormat =
+  | 'hardcover'
+  | 'paperback'
+  | 'ebook'
+  | 'audiobook'
   | 'graphic_novel';
 
-export type GoalType = 
-  | 'books_per_year' 
-  | 'pages_per_month' 
-  | 'minutes_per_day' 
-  | 'genre_diversity' 
+export type GoalType =
+  | 'books_per_year'
+  | 'pages_per_month'
+  | 'minutes_per_day'
+  | 'genre_diversity'
   | 'author_diversity';
 
-export interface ReadingPreferences {
+export type ReadingPreferences = {
   preferredFormats?: BookFormat[];
   averageReadingSpeed?: number; // pages per hour
   preferredReadingTimes?: string[];
@@ -29,7 +29,7 @@ export interface ReadingPreferences {
   languagePreferences?: string[];
 }
 
-export interface PrivacySettings {
+export type PrivacySettings = {
   profile_public: boolean;
   reading_activity_public: boolean;
   reviews_public: boolean;
@@ -37,7 +37,7 @@ export interface PrivacySettings {
   show_reading_stats?: boolean;
 }
 
-export interface ImageLinks {
+export type ImageLinks = {
   thumbnail?: string;
   small?: string;
   medium?: string;
@@ -45,7 +45,7 @@ export interface ImageLinks {
   extraLarge?: string;
 }
 
-export interface Note {
+export type Note = {
   id: string;
   content: string;
   page?: number;
@@ -55,7 +55,7 @@ export interface Note {
 }
 
 // Database table types
-export interface Profile {
+export type Profile = {
   id: string;
   username: string;
   display_name: string | null;
@@ -70,7 +70,7 @@ export interface Profile {
   last_active_at: string;
 }
 
-export interface Book {
+export type Book = {
   id: string;
   google_books_id: string | null;
   isbn10: string | null;
@@ -91,7 +91,7 @@ export interface Book {
   updated_at: string;
 }
 
-export interface UserBook {
+export type UserBook = {
   id: string;
   user_id: string;
   book_id: string;
@@ -109,7 +109,7 @@ export interface UserBook {
   updated_at: string;
 }
 
-export interface ReadingSession {
+export type ReadingSession = {
   id: string;
   user_id: string;
   book_id: string;
@@ -123,7 +123,7 @@ export interface ReadingSession {
   created_at: string;
 }
 
-export interface ReadingGoal {
+export type ReadingGoal = {
   id: string;
   user_id: string;
   type: GoalType;
@@ -137,7 +137,7 @@ export interface ReadingGoal {
   updated_at: string;
 }
 
-export interface Review {
+export type Review = {
   id: string;
   user_id: string;
   book_id: string;
@@ -151,7 +151,7 @@ export interface Review {
   updated_at: string;
 }
 
-export interface BookList {
+export type BookList = {
   id: string;
   user_id: string;
   name: string;
@@ -164,7 +164,7 @@ export interface BookList {
   updated_at: string;
 }
 
-export interface BookListItem {
+export type BookListItem = {
   id: string;
   list_id: string;
   book_id: string;
@@ -173,14 +173,14 @@ export interface BookListItem {
   added_at: string;
 }
 
-export interface Follow {
+export type Follow = {
   id: string;
   follower_id: string;
   followee_id: string;
   created_at: string;
 }
 
-export interface ReviewComment {
+export type ReviewComment = {
   id: string;
   review_id: string;
   user_id: string;
@@ -189,7 +189,7 @@ export interface ReviewComment {
   updated_at: string;
 }
 
-export interface ReviewLike {
+export type ReviewLike = {
   id: string;
   review_id: string;
   user_id: string;
@@ -197,21 +197,21 @@ export interface ReviewLike {
 }
 
 // Extended types with relations
-export interface UserBookWithBook extends UserBook {
+export type UserBookWithBook = UserBook & {
   book: Book;
 }
 
-export interface ReviewWithUser extends Review {
+export type ReviewWithUser = Review & {
   profile: Pick<Profile, 'id' | 'username' | 'display_name' | 'profile_image_url'>;
 }
 
-export interface ReviewWithDetails extends ReviewWithUser {
+export type ReviewWithDetails = ReviewWithUser & {
   book: Pick<Book, 'id' | 'title' | 'authors' | 'image_links'>;
   comments_count: number;
   user_liked: boolean;
 }
 
-export interface BookListWithItems extends BookList {
+export type BookListWithItems = BookList & {
   items: Array<BookListItem & { book: Book }>;
   items_count: number;
 }
@@ -224,57 +224,77 @@ export type Database = {
         Row: Profile;
         Insert: Omit<Profile, 'created_at' | 'updated_at' | 'last_active_at'>;
         Update: Partial<Omit<Profile, 'id' | 'created_at'>>;
+        Relationships: [];
       };
       books: {
         Row: Book;
         Insert: Omit<Book, 'id' | 'created_at' | 'updated_at'>;
         Update: Partial<Omit<Book, 'id' | 'created_at'>>;
+        Relationships: [];
       };
       user_books: {
         Row: UserBook;
         Insert: Omit<UserBook, 'id' | 'created_at' | 'updated_at'>;
         Update: Partial<Omit<UserBook, 'id' | 'user_id' | 'book_id' | 'created_at'>>;
+        Relationships: [];
       };
       reading_sessions: {
         Row: ReadingSession;
         Insert: Omit<ReadingSession, 'id' | 'created_at'>;
         Update: Partial<Omit<ReadingSession, 'id' | 'user_id' | 'book_id' | 'created_at'>>;
+        Relationships: [];
       };
       reading_goals: {
         Row: ReadingGoal;
         Insert: Omit<ReadingGoal, 'id' | 'created_at' | 'updated_at'>;
         Update: Partial<Omit<ReadingGoal, 'id' | 'user_id' | 'created_at'>>;
+        Relationships: [];
       };
       reviews: {
         Row: Review;
         Insert: Omit<Review, 'id' | 'likes_count' | 'created_at' | 'updated_at'>;
         Update: Partial<Omit<Review, 'id' | 'user_id' | 'book_id' | 'likes_count' | 'created_at'>>;
+        Relationships: [];
       };
       book_lists: {
         Row: BookList;
         Insert: Omit<BookList, 'id' | 'created_at' | 'updated_at'>;
         Update: Partial<Omit<BookList, 'id' | 'user_id' | 'created_at'>>;
+        Relationships: [];
       };
       book_list_items: {
         Row: BookListItem;
         Insert: Omit<BookListItem, 'id' | 'added_at'>;
         Update: Partial<Omit<BookListItem, 'id' | 'list_id' | 'book_id' | 'added_at'>>;
+        Relationships: [];
       };
       follows: {
         Row: Follow;
         Insert: Omit<Follow, 'id' | 'created_at'>;
         Update: never;
+        Relationships: [];
       };
       review_comments: {
         Row: ReviewComment;
         Insert: Omit<ReviewComment, 'id' | 'created_at' | 'updated_at'>;
         Update: Partial<Omit<ReviewComment, 'id' | 'review_id' | 'user_id' | 'created_at'>>;
+        Relationships: [];
       };
       review_likes: {
         Row: ReviewLike;
         Insert: Omit<ReviewLike, 'id' | 'created_at'>;
         Update: never;
+        Relationships: [];
       };
+    };
+    Views: {
+      [_ in never]: never
+    };
+    Functions: {
+      [_ in never]: never
+    };
+    CompositeTypes: {
+      [_ in never]: never
     };
     Enums: {
       reading_status: ReadingStatus;

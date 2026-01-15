@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import React from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { Playfair_Display, Lora, EB_Garamond, Crimson_Text } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+
 import "./globals.css";
 import "@/styles/textures.css";
 import "@/styles/animations.css";
