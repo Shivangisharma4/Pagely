@@ -1,73 +1,79 @@
-# Pagely - Personal Reading Tracker
+# 📚 Pagely
 
-A modern, full-featured book reading tracker built with Next.js 14, Supabase, and TypeScript.
+> **Track Your Reading Journey**
 
-**Live at**: http://localhost:3000
+Pagely is a modern, beautifully designed book tracking application that helps you discover, manage, and reflect on your reading life. Whether you're setting yearly goals, keeping track of your library, or analyzing your reading habits, Pagely provides a seamless experience to enhance your literary journey.
 
----
-
-## ⚡ Quick Start
-
-```bash
-npm run dev
-```
-
-Open http://localhost:3000 and start tracking your reading!
+🔗 **Live Demo:** [pagely-icbmwb3b4-kathana-ai.vercel.app](https://pagely-icbmwb3b4-kathana-ai.vercel.app)
 
 ---
 
 ## ✨ Features
 
-- 📚 **Personal Library** - Organize books by reading status
-- 📊 **Statistics** - Visualize reading habits with charts
-- 🎯 **Reading Goals** - Set and track yearly/monthly targets
-- 📝 **Notes & Quotes** - Save thoughts and favorite passages
-- ⭐ **Reviews** - Rate and review books
-- 👥 **Social** - Follow readers, join book clubs
-- 📥 **Import/Export** - Goodreads CSV import, data export
-- 🌙 **Dark Mode** - Beautiful light and dark themes
-- 📱 **PWA** - Install as app with offline support
-
----
+- **📖 Digital Library**: Organize your books into "Want to Read", "Currently Reading", and "Finished" shelves.
+- **🎯 Reading Goals**: Set and track yearly or monthly reading challenges to stay motivated.
+- **🔍 Discover**: Find your next favorite book with powerful search and curated recommendations.
+- **📊 Analytics**: Visualize your reading habits with detailed stats and progress tracking.
+- **⏱️ Reading Sessions**: Log your reading sessions to track time spent and pages read.
+- **📝 Notes & Quotes**: Save memorable quotes and take notes as you read.
+- **🤝 Social**: Connect with friends, follow their reading journeys, and share reviews.
+- **🎨 Modern UI**: A premium, responsive interface with dark mode support.
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Database**: Supabase (PostgreSQL)
-- **Styling**: Tailwind CSS + shadcn/ui
+Built with a modern stack for performance and developer experience:
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Directory)
 - **Language**: TypeScript
-- **Testing**: Vitest (150 tests passing)
-- **API**: Google Books API
+- **Database & Auth**: [Supabase](https://supabase.com/)
+- **Styling**: Tailwind CSS + [Radix UI](https://www.radix-ui.com/)
+- **Animations**: Framer Motion
+- **State Management**: Zustand + React Query
+- **Deployment**: Vercel
+
+## 🚀 Getting Started
+
+To run Pagely locally, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Shivangisharma4/Pagely.git
+    cd Pagely
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a `.env.local` file in the root directory and add your Supabase credentials:
+    ```env
+    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+    ```
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+5.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests to help improve Pagely.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 📋 Commands
-
-```bash
-npm run dev      # Start development server
-npm test         # Run tests  
-npm run build    # Build for production
-npm start        # Start production server
-```
-
----
-
-## 🔑 Configuration
-
-All credentials in `.env.local`. See `README_QUICK_REFERENCE.md` for details.
-
----
-
-## 📖 Documentation
-
-- **`README_QUICK_REFERENCE.md`** - Complete guide with credentials, commands, troubleshooting
-- **`../PROJECT_COMPLETION_SUMMARY.md`** - Full feature list
-- **`../TEST_RESULTS.md`** - Test coverage
-
----
-
-## ✅ Status
-
-✅ All 30 tasks complete | ✅ 150 tests passing | ✅ Production ready
-
-**Built with ❤️ using Next.js and Supabase**
+Built with ❤️ by [Shivangi](https://github.com/Shivangisharma4)
