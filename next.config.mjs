@@ -35,7 +35,6 @@ const nextConfig = {
   },
   experimental: {
     typedRoutes: true,
-    ppr: 'incremental', // Enable Partial Prerendering
   },
 };
 
