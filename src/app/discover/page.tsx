@@ -23,9 +23,6 @@ const BookDetailsModal = dynamic(
   { ssr: false }
 );
 
-// Enable ISR: Revalidate every hour for global speed
-export const revalidate = 3600;
-
 function DiscoverContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
